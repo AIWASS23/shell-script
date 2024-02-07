@@ -1,0 +1,246 @@
+O que é um comando? Um comando é um programa de software que, quando executado na CLI 
+(interface de linha de comando), executa uma ação no computador. Quando você digita um 
+comando, um processo é executado pelo sistema operacional que pode ler o input, manipular 
+dados e produzir output. Um comando executa um processo no sistema operacional, que faz 
+com que o computador execute um trabalho.
+
+Um argumento pode ser usado para especificar algo para o comando agir. O comando ls pode 
+ser dado o nome de um diretório como um argumento, e ele irá listar o conteúdo desse 
+diretório. 
+
+As opções podem ser usadas para alterar o comportamento de um comando. O comando ls foi 
+usado para listar o conteúdo de um diretório. Muitas vezes, o caractere é escolhido para 
+ser mnemônico para o seu propósito, como escolher a letra l para longo ou r para reverso. 
+Por padrão, o comando ls imprime os resultados em ordem alfabética, portanto, adicionar a 
+opção -r irá imprimir os resultados em ordem alfabética inversa.
+
+Para descobrir onde você está atualmente localizado dentro do sistema de arquivos, o comando 
+pwd pode ser usado. O comando pwd imprime o diretório de trabalho, sua localização atual 
+dentro do sistema de arquivos:
+
+Os arquivos são usados para armazenar dados tais como texto, gráficos e programas. 
+Os diretórios são um tipo de arquivo usado para armazenar outros arquivos- eles fornecem 
+uma estrutura organizacional hierárquica. 
+
+Um caminho absoluto permite que você especifique a localização exata de um diretório. Ele 
+sempre começa no diretório root, portanto ele sempre começa com o caractere /. O caminho 
+para o diretório home /home/sysadmin é um caminho absoluto.
+
+Um caminho relativo fornece direções para um arquivo relativo à sua localização atual no 
+sistema de arquivos. Os caminhos relativos não começam com o caractere /, eles começam com 
+o nome de um diretório.
+
+Atalhos:
+
+Os Caracteres ..
+Independentemente do diretório em que você esteja, os caracteres .. sempre representa um 
+diretório maior em relação ao diretório atual, às vezes referido como o diretório pai.
+
+O caractere .
+Independentemente do diretório em que você esteja, o caractere . sempre representa seu 
+diretório atual.
+
+O caractere ~
+O diretório home do usuário atual é representado pelo caractere ~. 
+
+Listando arquivos
+O comando ls é usado para listar o conteúdo de um diretório. 
+
+Acesso administrativo
+Existem muitos comandos Linux que lidam com informações confidenciais, como senhas, 
+hardware do sistema, ou de outra forma operam sob outras circunstâncias excepcionais. 
+Impedir que usuários regulares executem esses comandos ajuda a proteger o sistema. 
+Fazer login como usuário root fornece acesso administrativo, permitindo a execução de 
+alguns dos comandos privilegiados.
+
+O Comando su
+su OPÇÕES NOME_DO_USUÁRIO
+O comando su permite que você atue temporariamente como um usuário diferente. Ele faz isso 
+criando um novo shell. O shell é simplesmente um console de entrada de texto que permite 
+digitar comandos. Por padrão, se uma conta de usuário não for especificada, o comando su 
+abrirá um novo shell como usuário root, que fornece privilégios administrativos.
+
+O Comando sudo
+sudo [OPTIONS] COMANDO
+O comando sudo permite que um usuário execute um comando como outro usuário sem criar um 
+novo shell. Em vez disso, para executar um comando com privilégios administrativos, use-o 
+como um argumento para o comando sudo. Como o comando su, o comando sudo assume por padrão 
+que a conta de usuário root deve ser usada para executar comandos.
+
+Permissões
+As permissões determinam as maneiras pelas quais diferentes usuários podem interagir com um 
+arquivo ou diretório. Ao listar um arquivo com o comando ls -l, a saída inclui informações 
+de permissão. 
+
+Alterando permissões de arquivo
+O comando chmod é usado para alterar as permissões de um arquivo ou diretório. Somente o 
+usuário root ou o usuário que possui o arquivo é capaz de alterar as permissões de um 
+arquivo.
+
+Exibindo Arquivos
+Existem alguns comandos Linux disponíveis para visualizar o conteúdo dos arquivos. O 
+comando cat, que significa 'concatenate', é frequentemente usado para visualizar 
+rapidamente o conteúdo de pequenos arquivos. O comando cat exibirá todo o conteúdo do 
+arquivo, por isso é recomendado principalmente para arquivos menores onde a saída é 
+limitada e não requer rolagem. Para visualizar o conteúdo de um arquivo usando o comando 
+cat, basta digitar o comando e usar o nome do arquivo que você deseja visualizar como 
+argumento.
+
+Outra maneira de visualizar o conteúdo dos arquivos é usando os comandos head e tail. 
+Esses comandos são usados para exibir um número selecionado de linhas na parte superior ou 
+inferior de um arquivo. Dar uma olhada em algumas linhas de um arquivo às vezes pode ser 
+útil para garantir que o arquivo seja aquele que você deseja usar. Outro motivo para 
+visualizar apenas a primeira ou última linha, é porque alguns arquivos, como arquivos de 
+log do sistema, são frequentemente atualizados com novas entradas. Semelhante ao comando 
+cat, os comandos head e tail usam o nome do arquivo que você deseja visualizar como 
+argumento para o comando.
+
+Copiando Arquivos
+O comando cp é usado para copiar arquivos. Semelhante ao comando mv, ele requer pelo menos 
+dois argumentos: uma origem e um destino.
+
+Copiando Arquivos
+O comando dd é um utilitário para copiar arquivos ou partições inteiras no nível de bits.
+
+O comando dd usa argumentos especiais para especificar como ele funcionará. A seguir 
+ilustra alguns dos argumentos mais comumente usados:
+
+dd if=/dev/zero of=/tmp/swapex bs=1M count=50
+O exemplo lê do arquivo /dev/zero, um arquivo especial contendo um número ilimitado de zeros.
+
+Argumento	Descrição
+if	
+Arquivo de entrada: O arquivo de entrada a ser lido.
+
+of	
+Arquivo de saída: O arquivo de saída a ser gravado.
+
+bs	
+Tamanho do bloco: O tamanho do bloco a ser usado. Por padrão, o valor é considerado 
+em bytes. Use os seguintes sufixos para especificar outras unidades: K, M, G e T para 
+kilobytes, megabytes, gigabytes e terabytes respectivamente.
+
+count	
+Contagem: O número de blocos a serem lidos a partir do arquivo de entrada.
+
+
+Mover arquivos
+O comando mv é usado para mover um arquivo de um local no sistema de arquivos para outro.
+
+mv FONTE DESTINO
+O comando mv requer pelo menos dois argumentos. O primeiro argumento é a fonte, um caminho 
+para o arquivo a ser movido. O segundo argumento é o destino, um caminho para onde o 
+arquivo será movido. Os arquivos a serem movidos às vezes são chamados de origem, e o 
+local onde os arquivos devem ser colocados é chamado de destino.
+
+Removendo arquivos
+O comando rm é usado para excluir arquivos e diretórios. É importante ter em mente que 
+arquivos e diretórios excluídos não entram em uma “lixeira” como acontece com sistemas 
+operacionais voltados para a área de trabalho. Quando um arquivo é excluído com o comando 
+rm, ele quase sempre desaparece permanentemente.
+
+Filtragem de Entrada
+O comando grep é um filtro de texto que irá procurar linhas de entrada e retorno que 
+contenham uma correspondência para um determinado padrão.
+
+Expressões Regulares
+As expressões regulares têm duas formas comuns: básica e estendida. A maioria dos comandos 
+que usam expressões regulares pode interpretar expressões regulares básicas. No entanto, 
+expressões regulares estendidas não estão disponíveis para todos os comandos e uma opção 
+de comando é normalmente necessária para que eles funcionem corretamente.
+
+A tabela a seguir resume os caracteres básicos de expressão regular:
+
+Caracteres Regex básicos    | Significado
+.	                        | Qualquer caractere único
+[ ]	                        | Qualquer caractere especificado
+[^ ]	                    | Não é o caractere especificado
+*	                        | Zero ou mais caracteres anteriores
+^	                        | Se o primeiro caractere do padrão, o padrão deve estar no início da linha para corresponder, caso contrário, apenas um literal ^
+$	                        | Se o último caractere do padrão, o padrão deve estar no final da linha para corresponder, caso contrário, apenas um literal $
+
+A tabela a seguir resume as expressões regulares estendidas, que devem ser usadas com o 
+comando egrep ou a opção -E com o comando grep:
+
+Caracteres Regex extendidos	| Significado
++	                        | Um ou mais do padrão anterior
+?	                        | O padrão anterior é opcional
+{ }	                        | Especifique correspondências mínimas, máximas ou exatas do padrão anterior
+|	                        | Alternação - um "ou" lógico
+( )	                        | Usado para criar grupos
+
+Padrões básicos
+Expressões regulares são padrões que apenas certos comandos são capazes de interpretar. 
+Expressões regulares podem ser expandidas para corresponder a determinadas sequências de 
+caracteres no texto. 
+
+Caracteres Ancora
+Caracteres âncora são uma das formas como expressões regulares podem ser usadas para 
+restringir os resultados da pesquisa.
+
+Desligando
+O comando shutdown faz com que o sistema seja desligado de forma segura. Todos os usuários 
+conectados são notificados de que o sistema está sendo desativado e, nos últimos cinco 
+minutos que antecederam o desligamento, novos logins são evitados.
+
+Configuração de rede
+O comando ifconfig significa “configuração de interface” e é usado para exibir informações 
+sobre a configuração de rede. O comando iwconfig é semelhante ao comando ifconfig, mas é 
+dedicado a interfaces de rede sem fio.
+
+Exibindo Processos
+A execução de um comando resulta em algo chamado processo. No sistema operacional Linux, 
+os processos são executados com os privilégios do usuário que executa o comando. Isso 
+permite que os processos sejam limitados a determinados recursos com base na identidade do 
+usuário. Embora existam exceções, geralmente o sistema operacional diferenciará os usuários 
+com base no fato de serem eles, ou não, o administrador. Normalmente, os usuários regulares, 
+como o usuário sysadmin, não podem controlar os processos de outro usuário. Os usuários que 
+têm privilégios administrativos, como a conta root, podem controlar qualquer processo do 
+usuário, inclusive a interrupção de qualquer processo de usuário.
+
+O comando ps pode ser usado para listar processos.
+
+O comando ps exibirá os processos que estão sendo executados no terminal atual por padrão. 
+A saída inclui as seguintes colunas de informações:
+
+PID: O identificador do processo, que é exclusivo para o processo. 
+Esta informação é útil para controlar o processo pelo seu número de identificação.
+
+TTY: O nome do terminal em que o processo está sendo executado. Esta informação é útil para 
+distinguir entre diferentes processos que têm o mesmo nome.
+
+TIME: A quantidade total de tempo do processador usado pelo processo. Normalmente, essas 
+informações não são usadas por usuários comuns.
+
+CMD: O comando que iniciou o processo.
+
+Gerenciamento de pacotes
+O gerenciamento de pacotes é um sistema pelo qual o software pode ser instalado, 
+atualizado, consultado ou removido de um sistema de arquivos. No Linux, existem muitos 
+sistemas diferentes de gerenciamento de pacotes de software diferentes, mas os dois mais 
+populares são os do Debian e da Red Hat. As máquinas virtuais para este curso usam o 
+Ubuntu, um derivado do Debian.
+
+No nível mais baixo do sistema de gerenciamento de pacotes Debian está o comando dpkg. 
+Este comando pode ser complicado para usuários iniciantes do Linux, então a Advanced 
+Package Tool, apt-get, um programa front-end para a ferramenta dpkg, torna o gerenciamento 
+de pacotes ainda mais fácil.
+
+Atualizando Pacotes
+O comando apt-get install também pode atualizar um pacote, se esse pacote estiver 
+instalado e uma versão mais recente estiver disponível. Se o pacote ainda não estiver no 
+sistema, ele será instalado; se estiver no sistema, ele será atualizado. A atualização de 
+todos os pacotes do sistema deve ser feita em duas etapas. Primeiro, atualize o cache de 
+todos os pacotes disponíveis com o apt-get update. Em segundo lugar, execute o 
+comando apt-get upgrade e todos os pacotes e dependências serão atualizados.
+
+Removendo Pacotes
+O comando apt-get é capaz de remover ou limpar um pacote. A diferença entre os dois é que a 
+limpeza apaga todos os arquivos de pacote, enquanto a remoção exclui todos os arquivos de 
+configuração do pacote, exceto os arquivos de configuração. Um administrador pode executar 
+o comando apt-get remove para remover um pacote ou o comando apt-get purge para limpar um 
+pacote completamente do sistema.
+
+Atualizando senhas de usuário
+O comando passwd é usado para atualizar a senha de um usuário. Os usuários só podem alterar 
+suas próprias senhas, enquanto o usuário root pode atualizar a senha para qualquer usuário.
